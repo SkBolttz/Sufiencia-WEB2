@@ -3,6 +3,8 @@
 API RESTful desenvolvida com Spring Boot 3, que oferece funcionalidades para autenticação de funcionários, gestão de comandas e cadastro de produtos. A API está documentada com OpenAPI/Swagger para facilitar o consumo e teste dos endpoints.
 
 ---
+Importar o arquivo Prova Suficiencia WEB.postman_collection.json para o Postman caso necessario para testes.
+---
 
 ## Tecnologias utilizadas
 
@@ -67,4 +69,5 @@ Todas as operações lançam exceções específicas e retornam códigos HTTP ad
 Após rodar a aplicação, a documentação dos endpoints estará disponível em: http://localhost:8080/swagger-ui/index.html
 
 Lá é possível testar todos os endpoints de forma interativa.
+
 
