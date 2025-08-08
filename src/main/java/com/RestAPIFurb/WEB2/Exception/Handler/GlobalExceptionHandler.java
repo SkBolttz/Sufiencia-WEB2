@@ -8,6 +8,7 @@ import com.RestAPIFurb.WEB2.Exception.Comanda.ComandaNaoLocalizadaException;
 import com.RestAPIFurb.WEB2.Exception.Comanda.ErroAoListarComandaException;
 import com.RestAPIFurb.WEB2.Exception.Comanda.RegistroComandaException;
 import com.RestAPIFurb.WEB2.Exception.Comanda.UsuarioNaoLocalizadoException;
+import com.RestAPIFurb.WEB2.Exception.Funcionario.CadastroException;
 import com.RestAPIFurb.WEB2.Exception.Produto.CadastroProdutoExecption;
 import com.RestAPIFurb.WEB2.Exception.Produto.DuplicidadeCadastroException;
 import com.RestAPIFurb.WEB2.Exception.Produto.ProdutoNaoLocalizadoException;
@@ -53,6 +54,12 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(ErroAoListarComandaException.class)
     public ResponseEntity<ErrorResponse> handleCadastroProdutoExecption(ErroAoListarComandaException ex) {
+        ErrorResponse errorResponse = new ErrorResponse(ex.getErro(), ex.getDetalhe());
+        return ResponseEntity.status(400).body(errorResponse);
+    }
+
+    @ExceptionHandler(CadastroException.class)
+    public ResponseEntity<ErrorResponse> handleCadastroProdutoExecption(CadastroException ex) {
         ErrorResponse errorResponse = new ErrorResponse(ex.getErro(), ex.getDetalhe());
         return ResponseEntity.status(400).body(errorResponse);
     }

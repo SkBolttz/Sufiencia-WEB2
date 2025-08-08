@@ -4,7 +4,6 @@ import lombok.Getter;
 
 @Getter
 public enum TipoFuncionario {
-    ADMINISTRADOR("Administrador"),
     FUNCIONARIO("Funcionario");
 
     private final String detalhe;

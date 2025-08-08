@@ -7,15 +7,14 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import com.RestAPIFurb.WEB2.Enum.TipoFuncionario;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -39,21 +38,11 @@ public class Funcionario implements UserDetails {
     @NotBlank
     private String nome;
     @NotBlank
+    @Column(unique = true)
     private String cpf;
     @NotBlank
-    @Email
-    private String email;
-    @NotBlank
-    private String telefone;
-    @NotBlank
     private String senha;
-    @NotNull
-    private LocalDate dataDeNascimento;
-    @NotNull
     private LocalDate dataCadastrado;
-    @NotNull
-    private boolean ativo;
-    @NotNull
     private TipoFuncionario tipoFuncionario;
 
     @Transient
@@ -72,6 +61,6 @@ public class Funcionario implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.getEmail();
+        return this.getCpf();
     }
 }
