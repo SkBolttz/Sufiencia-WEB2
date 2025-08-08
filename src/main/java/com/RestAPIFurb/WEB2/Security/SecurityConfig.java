@@ -36,9 +36,12 @@ public class SecurityConfig {
                                 "/swagger-ui/**",
                                 "/swagger-resources",
                                 "/swagger-resources/**",
-                                "/webjars/**")
+                                "/webjars/**",
+                                "/RestAPIFurb/registrar/comanda",
+                                "/RestAPIFurb/registro",
+                                "/RestAPIFurb/login")
                         .permitAll()
-                        .anyRequest().permitAll())
+                        .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
